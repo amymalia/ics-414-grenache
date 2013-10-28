@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Team Grenache Sundial</title>
+		<!-- main css -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!-- media queries css -->
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+		
+		<link href="css/sundialstyle.css" rel="stylesheet" type="text/css">
+		
+		<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/sundialscript.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+		
+			</div>
+			<!-- /#header -->
+			
+			<div class="row" id="dataInput">
+			
+				<form name="form" action="display.html" onsubmit="return submitData()" method="post">
+					Date: <input type="date" name="date" id="date"/><br/>
+					Latitude: <input type="text" name="latitude" id="latitude"/><br/>
+					Longitude: <input type="text" name="longitude" id="longitude"/><br/>
+					<input type="submit" value="submit"/>
+				</form>
+			
+			
+			
+			</div>
+		
+		</div>
+	</body>
+</html>

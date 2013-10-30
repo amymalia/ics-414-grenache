@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Bryan\Documents\GitHub\ics-414-grenache\.metadata\.plugins\org.eclipse.jdt.core
-2679704972.index
-2424974901.index
-46282028.index

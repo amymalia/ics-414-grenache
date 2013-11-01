@@ -1,10 +1,21 @@
-#dataInput{
+#dataInput,#homeHead{
 	background-color:#C0C0C0;
 	border:2px solid;
 	border-radius:6px;
 }
-
+#homeHead{
+	background-color:#C0C0C0;
+	border:2px solid;
+	border-radius:6px;
+}
+#homeHead h1{
+	text-align:center
+}
 html body
 {
-	background-color: #E0E0E0;
+	background-color: #000000;
+	background-image:url('http://i206.photobucket.com/albums/bb95/o0ukjay0o/wallpaper-	starlitnigcccht1600.jpg');
+	background-repeat:no-repeat;
+ 	background-size: 100% auto;
+	background-position:center; 
 }

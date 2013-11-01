@@ -10,9 +10,11 @@
 		<link href="css/sundialstyle.css" rel="stylesheet" type="text/css">
 		
 		<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/sundialscript.js"></script>
+		
 	</head>
 	<body>
 		<div class="container">
@@ -23,17 +25,43 @@
 			
 			<div class="row" id="dataInput">
 			
-				<form id="form">
-					Date: 
-					<input type="text" name="month" size ="4" maxlength="2" id="month"/>mm/
-					<input type="text" name="day" size ="4" maxlength="2" id="day"/>dd/
-					<input type="text" name="year" size ="6" maxlength="4" id="year"/>yyyy
-					<br/>
-					Latitude: <input type="text" name="latitude" id="latitude"/><br/>
-					Longitude: <input type="text" name="longitude" id="longitude"/><br/>
-					<input type="checkbox" name="daylightsavings">Daylight Savings <br/>
-					<button type="button" id="button" onClick="submit()">Submit</button>
-				</form>
+				
+					<div class="col-md-2">Date: </div>
+					<div class="col-md-10">
+						<input type="text" name="month" size ="2" maxlength="2" id="month"
+							style="color:#888;" value="MM" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>/
+						<input type="text" name="day" size ="2" maxlength="2" id="day"
+							style="color:#888;" value="DD" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>/
+						<input type="text" name="year" size ="4" maxlength="4" id="year"
+							style="color:#888;" value="YYYY" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>
+					</div>
+					<div class="col-md-2">
+						Latitude:
+					</div>
+					<div class="col-md-10">
+						<input type="text" name="latitude" id="latitude"/>
+					</div>
+					<div class="col-md-2">
+						Longitude:
+					</div>
+					<div class="col-md-10">
+						<input type="text" name="longitude" id="longitude"/><br/>
+					</div>
+					<div class="col-md-2">
+						Get My Location:
+					</div>
+					<div class="col-md-10" onLoad="initialize()">
+						<input type="text" name="location" id="location"
+							style="color:#888;" value="ex: UH Manoa" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>
+						<button type="button" id="locbutton" onClick="getLoc()">Find</button>
+					</div>
+					<div class="col-md-12">
+						<input type="checkbox" name="daylightsavings">Daylight Savings<br/>
+					</div>
+					<div class="col-md-12">
+						<button type="button" id="submitbutton" onClick="submit()">Submit</button><br/>
+					</div>
+				
 			
 			
 			

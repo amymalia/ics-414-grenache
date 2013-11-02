@@ -1,15 +1,16 @@
-#dataInput,#homeHead{
+#dataInput,#homeHead, #sundialHead{
 	background-color:#C0C0C0;
 	border:2px solid;
 	border-radius:6px;
 }
-#homeHead{
-	background-color:#C0C0C0;
-	border:2px solid;
-	border-radius:6px;
-}
-#homeHead h1{
+
+#homeHead h1, #sundial h1{
 	text-align:center
+}
+#columns{
+	background-color:#C0C0C0;
+	border:2px solid;
+	-webkit-column-gap:40px;	
 }
 html body
 {

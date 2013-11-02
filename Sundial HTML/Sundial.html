@@ -27,7 +27,7 @@
 			
 				
 					<div class="col-md-2">Date: </div>
-					<div class="col-md-10">
+					<div class="col-md-10" id="datediv">
 						<input type="text" name="month" size ="2" maxlength="2" id="month"
 							style="color:#888;" value="MM" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>/
 						<input type="text" name="day" size ="2" maxlength="2" id="day"
@@ -38,13 +38,13 @@
 					<div class="col-md-2">
 						Latitude:
 					</div>
-					<div class="col-md-10">
+					<div class="col-md-10" id="latdiv">
 						<input type="text" name="latitude" id="latitude"/>
 					</div>
 					<div class="col-md-2">
 						Longitude:
 					</div>
-					<div class="col-md-10">
+					<div class="col-md-10" id="londiv">
 						<input type="text" name="longitude" id="longitude"/><br/>
 					</div>
 					<div class="col-md-2">
@@ -56,10 +56,10 @@
 						<button type="button" id="locbutton" onClick="getLoc()">Find</button>
 					</div>
 					<div class="col-md-12">
-						<input type="checkbox" name="daylightsavings">Daylight Savings<br/>
+						<input type="checkbox" name="daylightsavings" id="daylightsavings">Daylight Savings<br/>
 					</div>
 					<div class="col-md-12">
-						<button type="button" id="submitbutton" onClick="submit()">Submit</button><br/>
+						<button type="button" id="submitbutton" onClick="check()">Submit</button><br/>
 					</div>
 				
 			

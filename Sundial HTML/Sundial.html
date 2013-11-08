@@ -23,51 +23,51 @@
 				<h1>Try it! (Or some kind of message)</h1>
 			</div>
 			<!-- /#header -->
-			
-			<div class="row" id="dataInput">
-			
-				
-					<div class="col-md-2">Date: </div>
-					<div class="col-md-10" id="datediv">
-						<input type="text" name="month" size ="2" maxlength="2" id="month"
-							style="color:#888;" value="MM" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>/
-						<input type="text" name="day" size ="2" maxlength="2" id="day"
-							style="color:#888;" value="DD" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>/
-						<input type="text" name="year" size ="4" maxlength="4" id="year"
-							style="color:#888;" value="YYYY" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>
+
+			<div id="dataInput">
+				<form role="form" class="form-horizontal">
+					<div class="form-group">
+						<label for="date" class="col-sm-2 control-label">Date:</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="date" placeholder="MM/DD/YYYY">
+						</div>
 					</div>
-					<div class="col-md-2">
-						Latitude:
+					<div class="form-group">
+						<label for="location" class="col-sm-2 control-label">Get My Location:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="location" placeholder="ex: UH Manoa">
+							<button type="button" class="btn btn-info" id="locbutton" onClick="getLoc()">Find</button>
+						</div>
 					</div>
-					<div class="col-md-10" id="latdiv">
-						<input type="text" name="latitude" id="latitude"/>
+					<div class="form-group">
+						<label for="latitude" class="col-sm-2 control-label">Latitude:</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="latitude">
+						</div>
 					</div>
-					<div class="col-md-2">
-						Longitude:
+					<div class="form-group">
+						<label for="longitude" class="col-sm-2 control-label">Longitude:</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="longitude">
+						</div>
 					</div>
-					<div class="col-md-10" id="londiv">
-						<input type="text" name="longitude" id="longitude"/><br/>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> Daylight Savings
+								</label>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-2">
-						Get My Location:
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-primary" id="submitbutton" onClick="check()">Submit</button><br/>
+						</div>
 					</div>
-					<div class="col-md-10" onLoad="initialize()">
-						<input type="text" name="location" id="location"
-							style="color:#888;" value="ex: UH Manoa" onfocus="inputFocus(this)" onblur="inputBlur(this)"/>
-						<button type="button" id="locbutton" onClick="getLoc()">Find</button>
-					</div>
-					<div class="col-md-12">
-						<input type="checkbox" name="daylightsavings" id="daylightsavings">Daylight Savings<br/>
-					</div>
-					<div class="col-md-12">
-						<button type="button" id="submitbutton" onClick="check()">Submit</button><br/>
-					</div>
-				
-			
-			
-			
+				</form>
 			</div>
-		
+			<!-- /#dataInput -->
 		</div>
 	</body>
 </html>

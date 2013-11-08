@@ -11,25 +11,17 @@ var sevenFive = 0;
 var minuteStr = "";
 var AMPM = "";
 
-/**
- * Calculates the location of the given longitude and latitude.
- * 
- * @param longDeg - just the degrees of the longitude entered by the user. 
- * @param longMin - just the minutes of the longitude entered by the user.
- * @param latDeg  - just the degrees of the latitude entered by the user.
- * @param latMin  - just the minutes of the latitude entered by the user.
- * @param month   - the month entered by the user.
- * @param day	  - the day entered by the user.
- * @param year	  - the year entered by the user.
- */
-function location(longDeg, latDeg, month, day, year, dayLightSavings){
+function foo(){
+};
+
+function loc(longDeg, latDeg, month, day, year, dayLightSavings){
 	
 	setGnomon(Math.abs(latDeg));
 	setDay(month, day);
 	setTime(longDeg, dayLightSavings);
 	setAngles(Math.abs(latDeg));
 
-}
+};
 
 /**
  * Gets the time at noon.

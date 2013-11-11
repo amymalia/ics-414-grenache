@@ -1,132 +1,121 @@
 function submit(){
-	
-	var month = parseInt($("#month").val()),
-		day = parseInt($("#day").val()),
-		year = parseInt($("#year").val());
-		
-	alert(month +"/"+day+"/"+year);
-
-	var lat = parseInt($('#latitude').val()),
-		lon = parseInt($('#longitude').val());
+	var date = $("#date").val().split('/');
+	var latitude = $("#latitude").val();
+	var longitude = $("#longitude").val();
+	var month = date[0],
+		day = date[1],
+		year = date[2];
 
 	var daylightsavings = $('#daylightsavings').is(':checked');
 	
-	//alert(daylightsavings);
+	alert("daylight savings is " + daylightsavings);
 };
 
-function check(){
+function validate(){
 	var errors = 0;
-	var month = document.getElementById('month');
-	var day = document.getElementById('day');
-	var year = document.getElementById('year');
+	var date = $("#date").val();
+	var latitude = $("#latitude").val();
+	var longitude = $("#longitude").val();
+	var dateRegex = /[\d]{1,2}\/[\d]{1,2}\/[\d][\d][\d][\d]/;
+	var latitudeRegex = /^[\-]?\d{1,2}\.(\d)+$/;
+	var longitudeRegex = /^[\-]?\d{1,3}\.(\d)+$/;
 
-	if(month.value==month.defaultValue || day.value==day.defaultValue  || year.value==year.defaultValue)
+	//check to make sure it isnt blank
+	if(date == null || date == "")
 	{
 		alert("please provide a date");
-		errors++;
-		/*
-		var errormsg = document.createElement('p');
-		errormsg.id='error';
-	
-		$("#datediv")
-		*/
 	}
-	else
+	else//not blank
 	{
-		var m = parseInt(month.value),
-			d = parseInt(day.value),
-			y = parseInt(year.value);
-			
-			
-		if(valid(m) && valid(d) && valid(y))
+		//check if date input is valid using a regular expression
+		if(!dateRegex.test(date))
 		{
-			//alert('valid numbers');
+			alert("please provide a date in the form: MM/DD/YYYY");
 		}
-		else
+		else//not blank and valid
 		{
-			alert("please enter a valid date");
-			errors++;
-		}
-
-		
-		if( m < 0 || m > 12)
-		{
-			alert("please provide a valid month(1-12)");
-			errors++;
-		}
-		else
-		{
-			//check if month has 31 days
-			if( m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12 )
-			{
-				if( d < 0 || d > 31)
+			//check for valid date
+			if(checkDate(date))
+			{//valid date now check lat/lon
+				//check latitude with regular expression
+				if(latitudeRegex.test(latitude))
 				{
-					alert("please provide a valid day(1-31)");
-					errors++;
-				}
-			}
-			else
-			{
-				//check february
-				if(m==2)
-				{
-					if(leapYear(y))
+					//valid latitude input
+					//now check for valid value
+					if(latitude < -90 || latitude > 90)
+					{//invalid value
+						alert("please enter a valid latitude value (from -90 to 90)");
+					}
+					else//valid date, valid latitude value
 					{
-						if( d < 0 || d > 29)
+						//check longitude with regular expression
+						if(longitudeRegex.test(longitude))
 						{
-							alert("please provide a valid day(1-29)");
-							errors++;
+							//valid longitude input
+							//now check for valid value
+							if(longitude < -180 || longitude > 180)
+							{//invalid value
+								alert("please enter a valid longitude value (from -180 to 180)");
+							}
+							else//valid date, valid latitude, valid longitude
+							{
+								//all inputs appear to be valid so call submit function
+								submit();
+							}
 						}
 					}
-					else
-					{
-						if( d < 0 || d > 28)
-						{
-							alert("please provide a valid day(1-28)");
-							errors++;
-						}
-					}
-				}//end february check
-				//check the months that have 30 days
-				else
-				{
-					if( d < 0 || d > 30)
-					{
-						alert("please provide a valid day(1-30)");
-						errors++;
-					}
+					
 				}
-			}
-			if( y < 1 || y > 3000)
-			{
-				alert("please provide a valid year(1-3000)");
-				errors++;
+				else//invalid latitude
+				{
+					alert("invalid input for latitude");
+				}
 			}
 		}
 	}
-	if(errors == 0)
-	{
-		submit();
+}
+
+function checkDate(date){
+	//split on slash to validate month/day/year
+	var splitDate = date.split('/');
+	var month = splitDate[0];
+	var day = splitDate[1];
+	var year = splitDate[2];
+
+	if(year < 1000 || year > 3000){
+		alert("please provide a valid year [1000-3000]");
+		return false;
 	}
-}
-
-function valid(value)
-{
-	return (typeof value == 'number' && isFinite(value));
-}
-
-function leapYear(year)
-{
-	return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
-}
-
-
-function inputFocus(i){
-    if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
-}
-
-function inputBlur(i){
-    if(i.value==""){ i.value=i.defaultValue; i.style.color="#888"; }
+	//Checks to make sure the month is valid.
+	if(month < 1 || month > 12){
+		alert("please provide a valid month [1-12]");
+		return false;
+	}
+			
+	//Checks to make sure the day is valid.
+	if(day < 1 || day > 31){
+		alert("please provide a valid day of the month");
+		return false;
+	}
+			
+	//Checks the months with 30 days.
+	if((month == 4 || month == 6 || month == 9 || month == 11) && day == 31){
+		alert("month " + month + " only has 30 days");
+		return false;
+	}
+			
+	//Checks to see if February is a leap year and corrects it if the person entered a leap year day.
+	if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) && month == 2 && day == 29){
+		return true;
+	}
+			
+	//Checks the month of February, makes false if day is over 28.
+	if(month == 2 && day > 28){
+		alert("February only has 28 days in the given year");
+		return false;
+	}
+			
+	return true;
 }
 
 function getLoc() {

@@ -7,8 +7,7 @@ function submit(){
 		year = date[2];
 
 	var daylightsavings = $('#daylightsavings').is(':checked');
-	
-	alert("daylight savings is " + daylightsavings);
+	loc(longitude, latitude, month, day, year, daylightsavings);
 };
 
 function validate(){
@@ -63,8 +62,12 @@ function validate(){
 								submit();
 							}
 						}
+						else
+						{
+							//invalid longitude input
+							alert("invalid input for longitude");
+						}
 					}
-					
 				}
 				else//invalid latitude
 				{
@@ -118,6 +121,8 @@ function checkDate(date){
 	return true;
 }
 
+//function to get latitude and longitude of the user based on their input location
+//updates the latitude and longitude input text fields to show the values
 function getLoc() {
 	var geocoder = new google.maps.Geocoder();
 	var address = document.getElementById("location").value;

@@ -8,7 +8,23 @@ function submit(){
 
 	var daylightsavings = $('#daylightsavings').is(':checked');
 	loc(longitude, latitude, month, day, year, daylightsavings);
+	
+	console.log(month + "/" + day + "/" + year);
+	console.log("latitude: " + latitude);
+	console.log("longitude: " + longitude);
+	console.log("daylight savings: " + daylightsavings);
+	testCalc();
 };
+
+function testCalc()
+{
+	console.log();
+	console.log(getSevenFive());
+	console.log(getEightFour());
+	console.log(getNineThree());
+	console.log(getTenTwo());
+	console.log(getElevenOne());
+}
 
 function validate(){
 	var errors = 0;

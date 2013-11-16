@@ -4,6 +4,13 @@
 	border-radius:6px;
 }
 
+#begin{
+	background-color:#C0C0C0;
+	border:2px solid;
+	border-radius:6px;
+	text-align:center;
+}
+
 
 #homeHead h1, #sundial h1{
 	text-align:center

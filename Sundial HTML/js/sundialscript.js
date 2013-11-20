@@ -1,3 +1,31 @@
+/*
+hide the results div with the sundial canvas in it
+when the page first loads so only the instructions and data input are showing
+*/
+$().ready(function(){
+	$("#results").toggle();
+});
+
+/*
+hides results again and unhides the instructions and data input divs
+and also clears the data input fields so the user can give it another try
+*/
+function restart(){
+	$("#sundialHead").toggle();
+	$("#dataInput").toggle();
+	$("#instructions").toggle();
+	$("#results").toggle();
+	$("#date").val("");
+	$("#latitude").val("");
+	$("#longitude").val("");
+	$("#location").val("");
+}
+
+/*
+calls the function for the calculations to set up the values
+then it logs the data in the console and hides/unhides divs
+to show the sundial then calls the drawing function
+*/
 function submit(){
 	var date = $("#date").val().split('/');
 	var latitude = $("#latitude").val();
@@ -14,8 +42,16 @@ function submit(){
 	console.log("longitude: " + longitude);
 	console.log("daylight savings: " + daylightsavings);
 	testCalc();
+	$("#sundialHead").toggle();
+	$("#dataInput").toggle();
+	$("#instructions").toggle();
+	$("#results").toggle();
+	drawSundial();
 };
 
+/*
+used to print out the angles to the console
+*/
 function testCalc()
 {
 	console.log();
@@ -26,6 +62,9 @@ function testCalc()
 	console.log(getElevenOne());
 }
 
+/*
+validates the user's input
+*/
 function validate(){
 	var errors = 0;
 	var date = $("#date").val();
@@ -94,6 +133,9 @@ function validate(){
 	}
 }
 
+/*
+checks to make sure the date is correct (30 days or 31 days, etc.)
+*/
 function checkDate(date){
 	//split on slash to validate month/day/year
 	var splitDate = date.split('/');

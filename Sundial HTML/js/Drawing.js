@@ -1,14 +1,13 @@
-	var a=document.getElementById("myCanvas");
-	var atx=a.getContext("2d");
-	drawSundial();
-
-
 // Converts from degrees to radians.
 function toRadians(degrees) {
 	return degrees * Math.PI / 180;
 };
 
 function drawSundial(){
+	var a=document.getElementById("myCanvas");
+	var atx=a.getContext("2d");
+	atx.clearRect(0, 0, a.width, a.height);
+
 	atx.font="25px Arial";
 	atx.fillText("Horizontal Sundial For " + gnomonDeg + " Degrees Latitude",10,50);
 	atx.rect(10,80,700,320);
@@ -23,27 +22,27 @@ function drawSundial(){
 	atx.stroke();
 	//creates hour lines on right side
 	//5PM
-	drawHourLinesRight(sevenFive);
+	drawHourLinesRight(atx, sevenFive);
 	//4PM
-	drawHourLinesRight(eightFour);
+	drawHourLinesRight(atx, eightFour);
 	//3PM
-	drawHourLinesRight(nineThree);
+	drawHourLinesRight(atx, nineThree);
 	//2PM
-	drawHourLinesRight(tenTwo);
+	drawHourLinesRight(atx, tenTwo);
 	//1PM
-	drawHourLinesRight(elevenOne);
+	drawHourLinesRight(atx, elevenOne);
 	
 	//creates hour lines on left side
 	//7PM
-	drawHourLinesLeft(sevenFive);
+	drawHourLinesLeft(atx, sevenFive);
 	//8PM
-	drawHourLinesLeft(eightFour);
+	drawHourLinesLeft(atx, eightFour);
 	//9PM
-	drawHourLinesLeft(nineThree);
+	drawHourLinesLeft(atx, nineThree);
 	//10PM
-	drawHourLinesLeft(tenTwo);
+	drawHourLinesLeft(atx, tenTwo);
 	//11PM
-	drawHourLinesLeft(elevenOne);
+	drawHourLinesLeft(atx, elevenOne);
 	
 	//labels lines
 	atx.font="16px Arial";
@@ -52,7 +51,7 @@ function drawSundial(){
 	atx.fillText(AMPM + " PM",620,380);
 }
 
-function drawHourLinesRight(angle){
+function drawHourLinesRight(atx, angle){
 	h = Math.round(250 * Math.tan(toRadians(angle)));
 	slope = ((380) - (380 - h)) / (360 - 610);
 	x2 = Math.round(((130 - 380 + (slope * 360)) / slope));
@@ -77,7 +76,7 @@ function drawHourLinesRight(angle){
 	}
 }
 
-function drawHourLinesLeft(angle){
+function drawHourLinesLeft(atx, angle){
 	h = Math.round(250 * Math.tan(toRadians(angle)));
 	slope = ((380) - (380 - h)) / (360 - 110);
 	x2 = Math.round(((130 - 380 + (slope * 360)) / slope));

@@ -38,7 +38,7 @@ function setTime(longDeg, dayLightSavings){
 	offset -= 7.53 * Math.cos(degreeToRad(360 * (getDay() - 81) / 365.0));
 	offset -= 1.5 * Math.sin(degreeToRad(360 * (getDay() - 81) / 365.0));
 
-	minute = ((longDeg % 15) * 4 - offset);
+	minute = Math.floor((longDeg % 15) * 4 - offset);
 	
 	//Adjust for time zones to the east of 0 degrees longitude.
 	if(longDeg < 0){

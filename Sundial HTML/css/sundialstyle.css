@@ -11,6 +11,12 @@
 	text-align:center;
 }
 
+#buttonDiv{
+	background-color:#C0C0C0;
+	border:2px solid;
+	border-radius:6px;
+	text-align:center;
+}
 
 #homeHead h1, #sundial h1{
 	text-align:center
@@ -32,3 +38,8 @@ html body
 	background-position:center; 
 }
 
+canvas{
+	background:white;
+	display:block;
+	margin: 0 auto;
+}

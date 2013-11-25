@@ -54,12 +54,19 @@ used to print out the angles to the console
 */
 function testCalc()
 {
-	console.log();
-	console.log(getSevenFive());
-	console.log(getEightFour());
-	console.log(getNineThree());
-	console.log(getTenTwo());
-	console.log(getElevenOne());
+	console.log('all variables:');
+	console.log(gnomonDeg);
+	console.log(hour);
+	console.log(minute);
+	console.log(day);
+	console.log(time);
+	console.log(minuteStr);
+	console.log(AMPM);
+	console.log(sevenFive);
+	console.log(eightFour);
+	console.log(nineThree);
+	console.log(tenTwo);
+	console.log(elevenOne);
 }
 
 /*

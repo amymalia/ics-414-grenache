@@ -52,6 +52,26 @@ function drawSundial(){
 }
 
 function drawHourLinesRight(atx, angle){
+	//l is the length of the line
+	var l = 250;
+	//y is the distance from the origin point to where the
+	//hour line will end
+	var y = (Math.sin(toRadians(angle)))*l;
+	//x is the distance from the origin point to where the
+	//hour line will end
+	var x = (Math.cos(toRadians(angle)))*l;
+	//log the values just to know it worked
+	console.log('angle: ' + angle);
+	console.log('x: ' + x);
+	console.log('y: ' + y);
+	console.log();
+	
+	//draw
+	atx.moveTo(360,380);
+	atx.lineTo(360+x,380-y);
+	atx.stroke();
+
+/*
 	h = Math.round(250 * Math.tan(toRadians(angle)));
 	slope = ((380) - (380 - h)) / (360 - 610);
 	x2 = Math.round(((130 - 380 + (slope * 360)) / slope));
@@ -74,9 +94,30 @@ function drawHourLinesRight(atx, angle){
 			atx.lineTo(x2,130);
 			atx.stroke();
 	}
+	*/
 }
 
 function drawHourLinesLeft(atx, angle){
+	//l is the length of the line
+	var l = 250;
+	//y is the distance from the origin point to where the
+	//hour line will end
+	var y = (Math.sin(toRadians(angle)))*l;
+	//x is the distance from the origin point to where the
+	//hour line will end
+	var x = (Math.cos(toRadians(angle)))*l;
+	//log the values just to know it worked
+	console.log('angle: ' + angle);
+	console.log('x: ' + x);
+	console.log('y: ' + y);
+	console.log();
+	
+	//draw
+	atx.moveTo(360,380);
+	atx.lineTo(360-x,380-y);
+	atx.stroke();
+
+/*
 	h = Math.round(250 * Math.tan(toRadians(angle)));
 	slope = ((380) - (380 - h)) / (360 - 110);
 	x2 = Math.round(((130 - 380 + (slope * 360)) / slope));
@@ -99,6 +140,7 @@ function drawHourLinesLeft(atx, angle){
 			atx.lineTo(x2,110);
 			atx.stroke();
 	}
+	*/
 }
 
 

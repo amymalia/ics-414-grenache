@@ -22,7 +22,7 @@
 	text-align:center;
 }
 
-#homeHead h1, #sundial h1, #homeHead h3, figcaption{
+#homeHead h1, #sundial h1, #homeHead h3, figcaption, #sundialHead h1{
 	text-align:center
 }
 .container-fluid{

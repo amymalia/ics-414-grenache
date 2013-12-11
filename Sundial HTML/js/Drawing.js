@@ -95,19 +95,20 @@ function drawHourLinesLeft(atx, angle){
 }
 
 function drawGnomon(atx){
-	console.log('HEY THERE!');
 		//creates the gnomen
+		//size of sundial
+		var l = 250;
 		if (gnomonDeg == 90)
 		{
 			//makes a rectangle
 			atx.moveTo(10, 500);
-			atx.rect(10,500,380,60);
+			atx.rect(10,500,200,170);
 			atx.stroke();
 		}
 		else{
 			//vertical line
 			atx.moveTo(10,500);
-			atx.lineTo(10,640);
+			atx.lineTo(10,500 + l);
 			atx.stroke();
 			
 			//horizontal line
@@ -127,18 +128,18 @@ function drawGnomon(atx){
 			}
 			
 			//hypotenuse line
-			var slope =  (640-500) / (10 - (x + 10));
-			var y1 = (640 - (slope * (10 - (346 + 10))));
+			var slope =  ((500 + l)-500) / (10 - (x + 10));
+			var y1 = ((500 + l) - (slope * (10 - (346 + 10))));
 			if (x > 346)
 			{
 				atx.moveTo((346+10), y1);
-				atx.lineTo(10, 640);
+				atx.lineTo(10, (500 + l));
 				atx.stroke();
 			}
 			else
 			{
 				atx.moveTo((x + 10), 500);
-				atx.lineTo(10, 640);
+				atx.lineTo(10, (500 + l));
 				atx.stroke();
 			}
 		}

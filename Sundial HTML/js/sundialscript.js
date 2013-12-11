@@ -4,6 +4,7 @@ when the page first loads so only the instructions and data input are showing
 */
 $().ready(function(){
 	$("#results").toggle();
+	console.log('testing: ics 414 is fun');
 });
 
 
